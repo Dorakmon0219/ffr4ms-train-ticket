@@ -40,3 +40,7 @@ zuul:
 ribbon:
   ConnectionTimeout: 10000
   ReadTimeout: 600000
+
+info:
+  getway: ts-inside-payment-service
+  port: ${server.port}
