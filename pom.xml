@@ -55,8 +55,6 @@
 		<module>ts-user-service</module>
 		<module>eureka-registry</module>
 		<module>zuul-train</module>
-		<module>test-zuul</module>
-		<module>test-resttemplate</module>
 		<module>zuul-price</module>
         <module>zuul-station</module>
 		<module>zuul-route</module>
