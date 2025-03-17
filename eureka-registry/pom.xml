@@ -29,6 +29,11 @@
             <version>2.4</version>
             <classifier>jdk15</classifier>
         </dependency>
+        <dependency>
+            <groupId>io.ztbeike.ffr4ms</groupId>
+            <artifactId>ffr4ms-registry-plugin</artifactId>
+            <version>${ffr4ms.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

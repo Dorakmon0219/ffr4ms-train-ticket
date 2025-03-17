@@ -8,6 +8,10 @@
 	<packaging>pom</packaging>
 	<name>ts-service-cluster</name>
 
+	<properties>
+		<ffr4ms.version>1.0-SNAPSHOT</ffr4ms.version>
+	</properties>
+
 	<parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>

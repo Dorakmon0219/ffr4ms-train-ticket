@@ -38,6 +38,11 @@
             <artifactId>ts-common</artifactId>
             <version>0.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.ztbeike.ffr4ms</groupId>
+            <artifactId>ffr4ms-trace-plugin</artifactId>
+            <version>${ffr4ms.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

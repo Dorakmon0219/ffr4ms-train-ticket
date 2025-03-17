@@ -37,6 +37,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.ztbeike.ffr4ms</groupId>
+            <artifactId>ffr4ms-trace-plugin</artifactId>
+            <version>${ffr4ms.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
