@@ -48,7 +48,13 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    metadata-map:
+      leaf: true
 
 info:
   leaf: 1
   port: ${server.port}
+
+logging:
+  level:
+    io.ztbeike.ffr4ms: debug

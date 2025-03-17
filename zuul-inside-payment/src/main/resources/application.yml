@@ -20,6 +20,8 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    metadata-map:
+      gateway: ts-inside-payment-service
 
 zuul:
   RibbonRoutingFilter:
@@ -27,7 +29,7 @@ zuul:
       disable: true
   routes:
     zuul:
-      path: /zuulApi/**
+      path: /frecovery/**
       service-id: zuul-inside-payment
 
     inside-payment:
@@ -44,3 +46,7 @@ ribbon:
 info:
   getway: ts-inside-payment-service
   port: ${server.port}
+
+logging:
+  level:
+    io.ztbeike.ffr4ms: debug
