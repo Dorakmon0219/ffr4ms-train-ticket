@@ -1,3 +1,4 @@
+# 火车票支付场景
 version: '3'
 services:
   eureka-demo:
@@ -391,7 +392,7 @@ services:
 
   ts-auth-service:
     build: ts-auth-service
-    image: codewisdom/ts-auth-service
+    image: ts-auth-service
     restart: always
     ports:
       - 12340:12340
@@ -410,7 +411,7 @@ services:
 
   ts-verification-code-service:
     build: ts-verification-code-service
-    image: codewisdom/ts-verification-code-service
+    image: ts-verification-code-service
     restart: always
     ports:
       - 15678:15678
@@ -431,7 +432,7 @@ services:
 
   ts-contacts-service:
     build: ts-contacts-service
-    image: codewisdom/ts-contacts-service
+    image: ts-contacts-service
     restart: always
     ports:
       - 12347:12347
@@ -457,7 +458,7 @@ services:
 
   ts-config-service:
     build: ts-config-service
-    image: codewisdom/ts-config-service
+    image: ts-config-service
     restart: always
     ports:
       - 15679:15679
@@ -481,7 +482,7 @@ services:
 
   ts-travel-service:
     build: ts-travel-service
-    image: codewisdom/ts-travel-service
+    image: ts-travel-service
     restart: always
     ports:
       - 12346:12346
@@ -495,7 +496,7 @@ services:
 
   ts-travel2-service:
     build: ts-travel2-service
-    image: codewisdom/ts-travel2-service
+    image: ts-travel2-service
     restart: always
     ports:
       - 16346:16346
@@ -509,7 +510,7 @@ services:
 
   ts-preserve-service:
     build: ts-preserve-service
-    image: codewisdom/ts-preserve-service
+    image: ts-preserve-service
     restart: always
     ports:
       - 14568:14568
@@ -518,7 +519,7 @@ services:
 
   ts-preserve-other-service:
     build: ts-preserve-other-service
-    image: codewisdom/ts-preserve-other-service
+    image: ts-preserve-other-service
     restart: always
     ports:
       - 14569:14569
@@ -543,7 +544,7 @@ services:
 
   ts-security-service:
     build: ts-security-service
-    image: codewisdom/ts-security-service
+    image: ts-security-service
     restart: always
     ports:
       - 11188:11188
@@ -562,7 +563,7 @@ services:
 
   ts-execute-service:
     build: ts-execute-service
-    image: codewisdom/ts-execute-service
+    image: ts-execute-service
     restart: always
     ports:
       - 12386:12386
@@ -576,7 +577,7 @@ services:
 
   ts-rebook-service:
     build: ts-rebook-service
-    image: codewisdom/ts-rebook-service
+    image: ts-rebook-service
     restart: always
     ports:
       - 18886:18886
@@ -590,7 +591,7 @@ services:
 
   ts-assurance-service:
     build: ts-assurance-service
-    image: codewisdom/ts-assurance-service
+    image: ts-assurance-service
     restart: always
     ports:
       - 18888:18888
@@ -604,7 +605,7 @@ services:
 
   ts-seat-service:
     build: ts-seat-service
-    image: codewisdom/ts-seat-service
+    image: ts-seat-service
     restart: always
     ports:
       - 18898:18898
@@ -613,7 +614,7 @@ services:
 
   ts-travel-plan-service:
     build: ts-travel-plan-service
-    image: codewisdom/ts-travel-plan-service
+    image: ts-travel-plan-service
     restart: always
     ports:
       - 14322:14322
@@ -622,7 +623,7 @@ services:
 
   ts-ticket-office-service:
     build: ts-ticket-office-service
-    image: codewisdom/ts-ticket-office-service
+    image: ts-ticket-office-service
     restart: always
     ports:
       - 16108:16108
@@ -636,7 +637,7 @@ services:
 
   ts-news-service:
     build: ts-news-service
-    image: codewisdom/ts-news-service
+    image: ts-news-service
     restart: always
     ports:
       - 12862:12862
@@ -659,7 +660,7 @@ services:
 
   ts-voucher-service:
     build: ts-voucher-service
-    image: codewisdom/ts-voucher-service
+    image: ts-voucher-service
     restart: always
     ports:
       - 16101:16101
@@ -672,7 +673,7 @@ services:
 
   ts-food-map-service:
     build: ts-food-map-service
-    image: codewisdom/ts-food-map-service
+    image: ts-food-map-service
     restart: always
     ports:
       - 18855:18855
@@ -686,7 +687,7 @@ services:
 
   ts-route-plan-service:
     build: ts-route-plan-service
-    image: codewisdom/ts-route-plan-service
+    image: ts-route-plan-service
     restart: always
     ports:
       - 14578:14578
@@ -695,7 +696,7 @@ services:
 
   ts-food-service:
     build: ts-food-service
-    image: codewisdom/ts-food-service
+    image: ts-food-service
     restart: always
     ports:
       - 18856:18856
@@ -704,7 +705,7 @@ services:
 
   ts-consign-service:
     build: ts-consign-service
-    image: codewisdom/ts-consign-service
+    image: ts-consign-service
     restart: always
     ports:
       - 16111:16111
@@ -718,7 +719,7 @@ services:
 
   ts-consign-price-service:
     build: ts-consign-price-service
-    image: codewisdom/ts-consign-price-service
+    image: ts-consign-price-service
     restart: always
     ports:
       - 16110:16110
@@ -737,7 +738,7 @@ services:
 
   ts-admin-basic-info-service:
     build: ts-admin-basic-info-service
-    image: codewisdom/ts-admin-basic-info-service
+    image: ts-admin-basic-info-service
     restart: always
     ports:
       - 18767:18767
@@ -746,7 +747,7 @@ services:
 
   ts-admin-order-service:
     build: ts-admin-order-service
-    image: codewisdom/ts-admin-order-service
+    image: ts-admin-order-service
     restart: always
     ports:
       - 16112:16112
@@ -755,7 +756,7 @@ services:
 
   ts-admin-route-service:
     build: ts-admin-route-service
-    image: codewisdom/ts-admin-route-service
+    image: ts-admin-route-service
     restart: always
     ports:
       - 16113:16113
@@ -768,7 +769,7 @@ services:
 
   ts-admin-travel-service:
     build: ts-admin-travel-service
-    image: codewisdom/ts-admin-travel-service
+    image: ts-admin-travel-service
     restart: always
     ports:
       - 16114:16114
@@ -781,7 +782,7 @@ services:
 
   ts-admin-user-service:
     build: ts-admin-user-service
-    image: codewisdom/ts-admin-user-service
+    image: ts-admin-user-service
     restart: always
     ports:
       - 16115:16115
