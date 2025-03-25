@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -107,7 +108,7 @@ public class StationServiceImpl implements StationService {
 
     @Override
     public Response queryById(String stationId, HttpHeaders headers) {
-        Station station = repository.findById(stationId);
+        Station station = repository.findById(stationId).get();
         if (station != null) {
             return new Response<>(1, success, station.getName());
         } else {
@@ -119,17 +120,18 @@ public class StationServiceImpl implements StationService {
     public Response queryByIdBatch(List<String> idList, HttpHeaders headers) {
         ArrayList<String> result = new ArrayList<>();
         for (int i = 0; i < idList.size(); i++) {
-            Station station = repository.findById(idList.get(i));
-            if (station != null) {
+            Optional<Station> stationOptional = repository.findById(idList.get(i));
+            if (stationOptional.isPresent()) {
+                Station station = stationOptional.get();
                 result.add(station.getName());
             }
         }
 
         if (!result.isEmpty()) {
-            return new Response<>(1, success, result);
+            return new Response<>(1, "success", result);
         } else {
-            return new Response<>(0, "No stationNamelist according to stationIdList", result);
+            return new Response<>(0, "No stationName list according to stationIdList", result);
         }
-
     }
+
 }

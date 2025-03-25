@@ -43,6 +43,10 @@
             <artifactId>ffr4ms-trace-plugin</artifactId>
             <version>${ffr4ms.version}</version>
         </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

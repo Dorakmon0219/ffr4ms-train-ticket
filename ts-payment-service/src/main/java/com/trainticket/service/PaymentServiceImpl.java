@@ -12,6 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author  Administrator
@@ -63,12 +64,13 @@ public class PaymentServiceImpl implements PaymentService{
     }
 
     @Override
-    public void initPayment(Payment payment, HttpHeaders headers){
-        Payment paymentTemp = paymentRepository.findById(payment.getId());
-        if(paymentTemp == null){
-            paymentRepository.save(payment);
-        }else{
+    public void initPayment(Payment payment, HttpHeaders headers) {
+        Optional<Payment> paymentTempOptional = paymentRepository.findById(payment.getId());
+        if (paymentTempOptional.isPresent()) {
             PaymentServiceImpl.LOGGER.info("[Payment Service][Init Payment] Already Exists: {}", payment.getId());
+        } else {
+            paymentRepository.save(payment);
         }
     }
+
 }

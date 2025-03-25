@@ -12,6 +12,7 @@ import route.repository.RouteRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -34,19 +35,24 @@ public class RouteServiceImpl implements RouteService {
         String[] distances = info.getDistanceList().split(",");
         List<String> stationList = new ArrayList<>();
         List<Integer> distanceList = new ArrayList<>();
+
+        // 校验站点和距离数量是否匹配
         if (stations.length != distances.length) {
             RouteServiceImpl.LOGGER.info("Station Number Not Equal To Distance Number");
-
             return new Response<>(0, "Station Number Not Equal To Distance Number", null);
         }
+
+        // 填充站点和距离列表
         for (int i = 0; i < stations.length; i++) {
             stationList.add(stations[i]);
             distanceList.add(Integer.parseInt(distances[i]));
         }
+
         int maxIdArrayLen = 10;
         if (info.getId() == null || info.getId().length() < maxIdArrayLen) {
+            // 创建新的 Route
             Route route = new Route();
-            route.setId(UUID.randomUUID().toString());
+            route.setId(UUID.randomUUID().toString());  // 新生成一个UUID
             route.setStartStationId(info.getStartStation());
             route.setTerminalStationId(info.getEndStation());
             route.setStations(stationList);
@@ -56,42 +62,44 @@ public class RouteServiceImpl implements RouteService {
 
             return new Response<>(1, "Save Success", route);
         } else {
-            Route route = routeRepository.findById(info.getId());
-            if (route == null) {
-                route = new Route();
-                route.setId(info.getId());
-            }
+            // 修改已有的 Route
+            Optional<Route> routeOptional = routeRepository.findById(info.getId());
+            if (routeOptional.isPresent()) {
+                Route route = routeOptional.get();
+                route.setStartStationId(info.getStartStation());
+                route.setTerminalStationId(info.getEndStation());
+                route.setStations(stationList);
+                route.setDistances(distanceList);
+                routeRepository.save(route);
+                RouteServiceImpl.LOGGER.info("Modify success");
 
-            route.setStartStationId(info.getStartStation());
-            route.setTerminalStationId(info.getEndStation());
-            route.setStations(stationList);
-            route.setDistances(distanceList);
-            routeRepository.save(route);
-            RouteServiceImpl.LOGGER.info("Modify success");
-            return new Response<>(1, "Modify success", route);
+                return new Response<>(1, "Modify success", route);
+            } else {
+                RouteServiceImpl.LOGGER.info("Route not found for id: {}", info.getId());
+                return new Response<>(0, "Route not found", null);
+            }
         }
     }
 
     @Override
     public Response deleteRoute(String routeId, HttpHeaders headers) {
         routeRepository.removeRouteById(routeId);
-        Route route = routeRepository.findById(routeId);
-        if (route == null) {
+        Optional<Route> routeOptional = routeRepository.findById(routeId);
+        if (!routeOptional.isPresent()) {
             return new Response<>(1, "Delete Success", routeId);
         } else {
-            return new Response<>(0, "Delete failed, Reason unKnown with this routeId", routeId);
+            return new Response<>(0, "Delete failed, Reason unknown with this routeId", routeId);
         }
     }
 
+
     @Override
     public Response getRouteById(String routeId, HttpHeaders headers) {
-        Route route = routeRepository.findById(routeId);
-        if (route == null) {
+        Optional<Route> route = routeRepository.findById(routeId);
+        if(route.isPresent())
+            return new Response<>(1, success, route.get());
+        else
             return new Response<>(0, "No content with the routeId", null);
-        } else {
-            return new Response<>(1, success, route);
-        }
-
     }
 
     @Override
