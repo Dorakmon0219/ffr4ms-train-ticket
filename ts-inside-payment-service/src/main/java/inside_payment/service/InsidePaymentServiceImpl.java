@@ -111,13 +111,13 @@ public class InsidePaymentServiceImpl implements InsidePaymentService {
                 if (outsidePaySuccess.getStatus() == 1) {
                     payment.setType(PaymentType.O);
                     paymentRepository.save(payment);
-                    setOrderStatus(info.getTripId(), info.getOrderId(), headers);
+//                    setOrderStatus(info.getTripId(), info.getOrderId(), headers);
                     return new Response<>(1, "Payment Success " +    outsidePaySuccess.getMsg(), null);
                 } else {
                     return new Response<>(0, "Payment Failed:  " +  outsidePaySuccess.getMsg(), null);
                 }
             } else {
-                setOrderStatus(info.getTripId(), info.getOrderId(), headers);
+//                setOrderStatus(info.getTripId(), info.getOrderId(), headers);
                 payment.setType(PaymentType.P);
                 paymentRepository.save(payment);
             }
