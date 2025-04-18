@@ -45,7 +45,7 @@ public class CancelServiceImpl implements CancelService {
             if (order.getStatus() == OrderStatus.NOTPAID.getCode()
                     || order.getStatus() == OrderStatus.PAID.getCode() || order.getStatus() == OrderStatus.CHANGE.getCode()) {
 
-                order.setStatus(OrderStatus.CANCEL.getCode());
+//                order.setStatus(OrderStatus.CANCEL.getCode());
 
                 Response changeOrderResult = cancelFromOrder(order, headers);
                 // 0 -- not find order   1 - cancel success
@@ -103,7 +103,7 @@ public class CancelServiceImpl implements CancelService {
 
                     CancelServiceImpl.LOGGER.info("[Cancel Order Service][Cancel Order] Order status ok");
 
-                    order.setStatus(OrderStatus.CANCEL.getCode());
+//                    order.setStatus(OrderStatus.CANCEL.getCode());
                     Response changeOrderResult = cancelFromOtherOrder(order, headers);
 
                     if (changeOrderResult.getStatus() == 1) {
